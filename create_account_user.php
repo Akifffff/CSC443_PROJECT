@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT User_ID FROM client WHERE User_Name = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_User_Name );
             
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     } elseif(strlen(trim($_POST["password"])) < 6){
         $User_Password_err = "Password must have atleast 6 characters.";
     } else{
-        $User_Password= trim($_POST["User_Password"]);
+        $User_Password= trim($_POST["password"]);
     }
     
     // Validate confirm password
@@ -69,7 +69,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare an insert statement
         $sql = "INSERT INTO client (User_Name, User_Password) VALUES (?, ?)";
          
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
             
