@@ -1,8 +1,8 @@
 <?php
-define('DB_USER', 'root');
-define('DB_PASSWORD', '');
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'csc443 project');
+define('db_user', 'root');
+define('db_password', '');
+define('db_host', 'localhost');
+define('db_name', 'csc443 project');
 
 $conn = mysqli_connect (db_host, db_user, db_password, db_name);
 $result = mysqli_query($conn, "select * from client");
