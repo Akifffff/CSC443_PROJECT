@@ -10,7 +10,7 @@ $User_Name_err = $User_Password_err = $confirm_password_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
-    if(empty(trim($_POST["userame"]))){
+    if(empty(trim($_POST["username"]))){
         $User_Name_err = "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
         $User_Name_err = "Username can only contain letters, numbers, and underscore.";
@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate password
     if(empty(trim($_POST["password"]))){
         $User_Password_err = "Please enter a password.";     
-    } elseif(strlen(trim($_POST["User_Password"])) < 6){
+    } elseif(strlen(trim($_POST["password"])) < 6){
         $User_Password_err = "Password must have atleast 6 characters.";
     } else{
         $User_Password= trim($_POST["User_Password"]);
@@ -91,7 +91,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($link);
 }
 ?>
  
