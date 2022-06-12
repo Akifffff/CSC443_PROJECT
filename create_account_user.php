@@ -119,7 +119,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="form-group">
                 <label>Password</label>
                 <input type="password" name="password" class="form-control <?php echo (!empty($User_Password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $User_Password; ?>">
-                <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                <span class="invalid-feedback"><?php echo $User_Password_err; ?></span>
             </div>
             <div class="form-group">
                 <label>Confirm Password</label>
