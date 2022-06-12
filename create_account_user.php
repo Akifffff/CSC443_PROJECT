@@ -11,9 +11,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["User_Name"]))){
-        $User_Name _err = "Please enter a username.";
+        $User_Name_err = "Please enter a username.";
     } elseif(!preg_match('/^[a-zA-Z0-9_]+$/', trim($_POST["username"]))){
-        $User_Name _err = "Username can only contain letters, numbers, and underscores.";
+        $User_Name_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
         $sql = "SELECT User_ID FROM client WHERE User_Name = ?";
