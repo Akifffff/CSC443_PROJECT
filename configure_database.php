@@ -1,16 +1,15 @@
 <?php
-define('db_user', 'root');
-define('db_password', '');
-define('db_host', 'localhost');
-define('db_name', 'csc443 project');
 
-$conn = mysqli_connect (db_host, db_user, db_password, db_name);
-$result = mysqli_query($conn, "select * from client");
-while ($row = mysqli_fetch_array ($result)){
-    foreach($row as $key =>$value){
-        echo "$key = $value <br> \n";
-    }
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'csc443 project');
+ 
+
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-mysqli_free_result($result);
-mysqli_close($conn);
 ?>
